@@ -26,10 +26,17 @@ const testimonials = [
 
 const TestimonialSection = () => {
   const [current, setCurrent] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [direction, setDirection] = useState<"left" | "right">("left");
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+      setDirection("left");
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+        setIsAnimating(false);
+      }, 400);
     }, 3000);
     return () => clearInterval(timer);
   }, []);
@@ -37,9 +44,20 @@ const TestimonialSection = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-16 md:py-24 bg-[#64CFFE]">
+    <section className="py-16 md:py-24 bg-[#64CFFE] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 select-text">
+        <div
+          className="flex flex-col md:flex-row items-center gap-10 md:gap-16 select-text transition-all duration-400 ease-in-out"
+          style={{
+            transform: isAnimating
+              ? direction === "left"
+                ? "translateX(-100%)"
+                : "translateX(100%)"
+              : "translateX(0)",
+            opacity: isAnimating ? 0 : 1,
+            transition: "transform 0.4s ease-in-out, opacity 0.4s ease-in-out",
+          }}
+        >
           {/* Left - Avatar with accent shape */}
           <div className="relative flex-shrink-0">
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-[#C8FF00] rounded-tl-[40px] rounded-br-[40px] rotate-[-15deg]" />
