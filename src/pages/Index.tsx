@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import TrustedBy from "@/components/TrustedBy";
 import PricingSection from "@/components/PricingSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import CreativeSolutionSection from "@/components/CreativeSolutionSection";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       </div>
       <PricingSection />
       <TestimonialSection />
+      <CreativeSolutionSection />
     </div>
   );
 };
