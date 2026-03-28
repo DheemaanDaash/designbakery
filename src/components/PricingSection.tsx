@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import ecommerceIllustration from "@/assets/ecommerce-illustration.png";
+import ecommerceIllustration from "@/assets/ecommerce-illustration.gif";
 
 const pricingPlans = [
   {
