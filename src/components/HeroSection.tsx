@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-[#A7792E10]">
+    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8">
       <div className="container mx-auto max-w-4xl">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight tracking-tight">
           The Leading Graphic
