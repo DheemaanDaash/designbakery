@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -8,8 +7,6 @@ const testimonials = [
     name: "Andrew Spilsbury",
     title: "Global VP - Brand at Gallagher Bassett",
     company: "Gallagher Bassett",
-    stat: "4,250+",
-    statLabel: "Hours saved",
   },
   {
     quote:
@@ -17,8 +14,6 @@ const testimonials = [
     name: "Sarah Mitchell",
     title: "Marketing Director at TechVision",
     company: "TechVision",
-    stat: "3,800+",
-    statLabel: "Designs delivered",
   },
   {
     quote:
@@ -26,16 +21,18 @@ const testimonials = [
     name: "James Rodriguez",
     title: "Creative Lead at Nova Studios",
     company: "Nova Studios",
-    stat: "2,100+",
-    statLabel: "Projects completed",
   },
 ];
 
 const TestimonialSection = () => {
   const [current, setCurrent] = useState(0);
 
-  const prev = () => setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const t = testimonials[current];
 
@@ -56,54 +53,15 @@ const TestimonialSection = () => {
           {/* Right - Content */}
           <div className="flex-1">
             <blockquote className="text-xl md:text-2xl lg:text-3xl font-bold text-primary leading-snug mb-6">
-              "{t.quote}"
+              &ldquo;{t.quote}&rdquo;
             </blockquote>
-            <p className="text-primary/80 text-base md:text-lg mb-8">
+            <p className="text-primary/80 text-base md:text-lg mb-4">
               {t.name}, {t.title}
             </p>
-
-            <div className="flex flex-wrap items-center gap-6 md:gap-10">
-              <span className="text-primary/60 font-semibold text-sm tracking-wider uppercase">
-                {t.company}
-              </span>
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl md:text-4xl font-black text-[#C8FF00]">
-                  {t.stat}
-                </span>
-                <span className="text-primary/70 text-sm">{t.statLabel}</span>
-              </div>
-              <button className="ml-auto bg-primary/80 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-primary transition-colors">
-                Read case study
-              </button>
-            </div>
+            <span className="text-primary/60 font-semibold text-sm tracking-wider uppercase">
+              {t.company}
+            </span>
           </div>
-        </div>
-
-        {/* Navigation dots & arrows */}
-        <div className="flex items-center justify-center gap-4 mt-10">
-          <button
-            onClick={prev}
-            className="w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-primary transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <div className="flex gap-2">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  i === current ? "bg-primary" : "bg-white/50"
-                }`}
-              />
-            ))}
-          </div>
-          <button
-            onClick={next}
-            className="w-10 h-10 rounded-full bg-white/30 hover:bg-white/50 flex items-center justify-center text-primary transition-colors"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
         </div>
       </div>
     </section>
