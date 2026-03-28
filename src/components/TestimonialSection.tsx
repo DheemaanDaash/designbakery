@@ -26,8 +26,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
   const [current, setCurrent] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [direction, setDirection] = useState<"left" | "right">("left");
+  const [phase, setPhase_unused] = useState<"idle" | "exit" | "enter">("idle");
 
   const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
 
