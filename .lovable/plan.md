@@ -1,38 +1,20 @@
 
 
-# Design Bakery — Navigation & Hero Section
+# Update Hero & Brand Colors
 
-## Overview
-Replicate the Design Bakery landing page starting with the navigation bar, hero section, and trusted logos strip based on the provided screenshot.
+## Changes
 
-## Design System
-- **Background**: Warm cream/beige (#FDF8F0)
-- **Primary text**: Dark navy blue (#0A1E5C)
-- **Accent/CTA**: Orange (#E89B2D) for links and highlights
-- **CTA Button**: Dark navy with white text, rounded
-- **Font style**: Bold sans-serif headings, clean body text
+### 1. Remove SVG wave divider from TrustedBy
+Delete the wave SVG block (lines 29–43) in `src/components/TrustedBy.tsx`.
 
-## Sections to Build
+### 2. Add hero background color
+Update `src/components/HeroSection.tsx` section to use `bg-[#A7792E10]` (very light gold tint).
 
-### 1. Navigation Bar
-- Logo "DESIGN BAKERY" with icon on the left
-- Nav links: Home (active/orange), Pricing, Contact, Blog, About
-- "Submit Design Request" CTA button (dark blue, rounded)
-- Sticky top, clean white/cream background
+### 3. Update primary brand color to #00378E
+`#00378E` in HSL ≈ `216 100% 28%`. Update `--primary` in `src/index.css` from `224 73% 20%` to `216 100% 28%`. Also update `--foreground`, `--card-foreground`, `--popover-foreground`, `--secondary-foreground`, `--ring` to match since they currently reference the old navy value.
 
-### 2. Hero Section
-- Large bold heading: "The Leading Graphic Design Subscription"
-- Subtitle paragraph about flat-rate unlimited graphic design
-- "Watch Demo →" orange link with arrow
-- Left-aligned text on cream background
-- Generous padding and whitespace
-
-### 3. Trusted Logos Strip
-- Heading: "Trusted By Thousands of Businesses Worldwide"
-- Row of placeholder company logos (Bengal Enterprise, Dental Pixel, Parking Koi, Brain House)
-- Centered layout with subtle bottom wave/curve transition
-
-## Pages & Routing
-- Single-page landing for now; nav links as anchors
-- Additional sections will be added as screenshots are shared
+### Files Modified
+- `src/components/TrustedBy.tsx` — remove SVG wave
+- `src/components/HeroSection.tsx` — add background color
+- `src/index.css` — update primary color variables
 
