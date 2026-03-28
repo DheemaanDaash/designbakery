@@ -29,13 +29,15 @@ const TestimonialSection = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"left" | "right">("left");
 
+  const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setDirection("left");
-      setIsAnimating(true);
+      setPhase("exit");
       setTimeout(() => {
         setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
-        setIsAnimating(false);
+        setPhase("enter");
+        setTimeout(() => setPhase("idle"), 50);
       }, 400);
     }, 3000);
     return () => clearInterval(timer);
