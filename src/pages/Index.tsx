@@ -21,6 +21,7 @@ const Index = () => {
       <TestimonialSection />
       <CreativeSolutionSection />
       <Footer />
+    </div>
   );
 };
 
