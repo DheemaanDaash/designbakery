@@ -1,8 +1,13 @@
+import bengalLogo from "@/assets/bengal-enterprise.png";
+import dentalPixelLogo from "@/assets/dental-pixel.png";
+import parkingKoiLogo from "@/assets/parking-koi.png";
+import brainHouseLogo from "@/assets/brain-house.png";
+
 const logos = [
-  { name: "Bengal Enterprise Inc.", color: "text-red-600" },
-  { name: "Dental Pixel", color: "text-primary" },
-  { name: "Parking Koi", color: "text-yellow-600" },
-  { name: "Brain House", color: "text-sky-500" },
+  { name: "Bengal Enterprise Inc.", src: bengalLogo },
+  { name: "Dental Pixel", src: dentalPixelLogo },
+  { name: "Parking Koi", src: parkingKoiLogo },
+  { name: "Brain House", src: brainHouseLogo },
 ];
 
 const TrustedBy = () => {
@@ -14,13 +19,8 @@ const TrustedBy = () => {
         </h2>
         <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
           {logos.map((logo) => (
-            <div
-              key={logo.name}
-              className="flex items-center justify-center"
-            >
-              <span className={`text-lg md:text-xl font-bold ${logo.color} whitespace-nowrap`}>
-                {logo.name}
-              </span>
+            <div key={logo.name} className="flex items-center justify-center">
+              <img src={logo.src} alt={logo.name} className="h-12 md:h-16 w-auto object-contain" />
             </div>
           ))}
         </div>
