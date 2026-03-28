@@ -26,21 +26,6 @@ const TrustedBy = () => {
         </div>
       </div>
 
-      {/* Subtle wave divider */}
-      <div className="mt-16 -mb-1">
-        <svg
-          viewBox="0 0 1440 60"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M0 30C240 60 480 0 720 30C960 60 1200 0 1440 30V60H0V30Z"
-            fill="hsl(var(--secondary))"
-          />
-        </svg>
-      </div>
     </section>
   );
 };
