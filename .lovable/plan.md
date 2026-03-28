@@ -1,20 +1,23 @@
 
 
-# Update Hero & Brand Colors
+# Extend Hero Background Through Trusted By Section with Arrow Shape
 
-## Changes
+## What Changes
 
-### 1. Remove SVG wave divider from TrustedBy
-Delete the wave SVG block (lines 29–43) in `src/components/TrustedBy.tsx`.
+1. **Merge Hero + TrustedBy into one continuous background block** — Wrap both sections in a single container with `bg-[#A7792E10]`, removing the individual background from HeroSection.
 
-### 2. Add hero background color
-Update `src/components/HeroSection.tsx` section to use `bg-[#A7792E10]` (very light gold tint).
+2. **Add downward arrow shape at the bottom** — Use a CSS clip-path on the wrapper div to create a downward-pointing arrow/chevron at the bottom edge, so the background naturally ends in an arrow shape (not a separate SVG element).
 
-### 3. Update primary brand color to #00378E
-`#00378E` in HSL ≈ `216 100% 28%`. Update `--primary` in `src/index.css` from `224 73% 20%` to `216 100% 28%`. Also update `--foreground`, `--card-foreground`, `--popover-foreground`, `--secondary-foreground`, `--ring` to match since they currently reference the old navy value.
+## Technical Approach
 
-### Files Modified
-- `src/components/TrustedBy.tsx` — remove SVG wave
-- `src/components/HeroSection.tsx` — add background color
-- `src/index.css` — update primary color variables
+**In `src/pages/Index.tsx`:**
+- Wrap `<HeroSection />` and `<TrustedBy />` in a `<div>` with:
+  - `bg-[#A7792E10]`
+  - `clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 50% 100%, 0 calc(100% - 40px))` — creates a downward arrow/chevron at the bottom
+
+**In `src/components/HeroSection.tsx`:**
+- Remove `bg-[#A7792E10]` from the section (parent handles it now)
+
+**In `src/components/TrustedBy.tsx`:**
+- Add bottom padding to give space for the arrow clip
 
