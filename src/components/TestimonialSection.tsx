@@ -26,8 +26,6 @@ const testimonials = [
 
 const TestimonialSection = () => {
   const [current, setCurrent] = useState(0);
-  const [phase, setPhase_unused] = useState<"idle" | "exit" | "enter">("idle");
-
   const [phase, setPhase] = useState<"idle" | "exit" | "enter">("idle");
 
   useEffect(() => {
@@ -44,19 +42,21 @@ const TestimonialSection = () => {
 
   const t = testimonials[current];
 
+  const getTransform = () => {
+    if (phase === "exit") return "translateX(-100%)";
+    if (phase === "enter") return "translateX(100%)";
+    return "translateX(0)";
+  };
+
   return (
     <section className="py-16 md:py-24 bg-[#64CFFE] overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
         <div
-          className="flex flex-col md:flex-row items-center gap-10 md:gap-16 select-text transition-all duration-400 ease-in-out"
+          className="flex flex-col md:flex-row items-center gap-10 md:gap-16 select-text"
           style={{
-            transform: isAnimating
-              ? direction === "left"
-                ? "translateX(-100%)"
-                : "translateX(100%)"
-              : "translateX(0)",
-            opacity: isAnimating ? 0 : 1,
-            transition: "transform 0.4s ease-in-out, opacity 0.4s ease-in-out",
+            transform: getTransform(),
+            opacity: phase === "idle" ? 1 : 0,
+            transition: phase === "enter" ? "none" : "transform 0.4s ease-in-out, opacity 0.4s ease-in-out",
           }}
         >
           {/* Left - Avatar with accent shape */}
