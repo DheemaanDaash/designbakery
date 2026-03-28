@@ -39,7 +39,7 @@ const TestimonialSection = () => {
   return (
     <section className="py-16 md:py-24 bg-[#64CFFE]">
       <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16 select-text">
           {/* Left - Avatar with accent shape */}
           <div className="relative flex-shrink-0">
             <div className="absolute -top-4 -left-4 w-20 h-20 bg-[#C8FF00] rounded-tl-[40px] rounded-br-[40px] rotate-[-15deg]" />
