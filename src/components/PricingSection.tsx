@@ -11,7 +11,7 @@ const pricingPlans = [
     description: "The perfect plug-in to help you scale your graphics quickly.",
     international: "$60/Month for International Payment.",
     popular: true,
-    headerColor: "bg-[#E8A83E]",
+    headerColor: "bg-[#F0B666]",
   },
   {
     title: "Website Design",
