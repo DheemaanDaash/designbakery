@@ -4,6 +4,7 @@ import TrustedBy from "@/components/TrustedBy";
 import PricingSection from "@/components/PricingSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import CreativeSolutionSection from "@/components/CreativeSolutionSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
       <PricingSection />
       <TestimonialSection />
       <CreativeSolutionSection />
+      <Footer />
     </div>
   );
 };
