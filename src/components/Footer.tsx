@@ -69,7 +69,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-border pt-6 text-center space-y-3">
           <p className="text-muted-foreground text-sm">
-            © 2021-2025 Design Bakery. All Rights Reserved.
+            © 2021-2026 Design Bakery. All Rights Reserved.
           </p>
           <div className="flex justify-center gap-2 text-sm">
             <a href="#" className="text-primary hover:underline">Terms & Conditions</a>
