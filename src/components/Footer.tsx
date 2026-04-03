@@ -10,14 +10,21 @@ const Footer = () => {
           <div>
             <img src={logo} alt="Design Bakery" className="h-20 mb-6" />
             <div className="flex gap-3">
-              {["facebook", "instagram", "linkedin", "youtube"].map((s) => (
+              {[
+                { name: "facebook", url: "https://www.facebook.com/DesignBakeryBD" },
+                { name: "instagram", url: "https://www.instagram.com/designbakerybd/" },
+                { name: "linkedin", url: "https://www.linkedin.com/company/designbakerybd/" },
+                { name: "youtube", url: "https://www.youtube.com/channel/UCrdIFv5rUDp6lpQwQc4ntjg" },
+              ].map((s) => (
                 <a
-                  key={s}
-                  href="#"
+                  key={s.name}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full border-2 border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label={s}
+                  aria-label={s.name}
                 >
-                  <SocialIcon name={s} />
+                  <SocialIcon name={s.name} />
                 </a>
               ))}
             </div>
