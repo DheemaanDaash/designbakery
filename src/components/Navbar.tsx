@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#", active: true },
-  { label: "Pricing", href: "#pricing" },
+  { label: "Home", href: "/" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "#contact" },
   { label: "Blog", href: "#blog" },
   { label: "About", href: "#about" },
