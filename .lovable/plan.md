@@ -1,23 +1,21 @@
 
 
-# Extend Hero Background Through Trusted By Section with Arrow Shape
+# Fix: Pricing Page 404 on Refresh
 
-## What Changes
+## Diagnosis
 
-1. **Merge Hero + TrustedBy into one continuous background block** — Wrap both sections in a single container with `bg-[#A7792E10]`, removing the individual background from HeroSection.
+The routing configuration is correct:
+- `BrowserRouter` is used (correct for Lovable hosting)
+- `/pricing` route is properly defined in `App.tsx`
+- Lovable hosting has built-in SPA fallback that should serve `index.html` for deep links
 
-2. **Add downward arrow shape at the bottom** — Use a CSS clip-path on the wrapper div to create a downward-pointing arrow/chevron at the bottom edge, so the background naturally ends in an arrow shape (not a separate SVG element).
+## Root Cause
 
-## Technical Approach
+The published site likely needs to be **republished** to include the new `/pricing` route in the build output. The current published build predates the pricing page addition.
 
-**In `src/pages/Index.tsx`:**
-- Wrap `<HeroSection />` and `<TrustedBy />` in a `<div>` with:
-  - `bg-[#A7792E10]`
-  - `clip-path: polygon(0 0, 100% 0, 100% calc(100% - 40px), 50% 100%, 0 calc(100% - 40px))` — creates a downward arrow/chevron at the bottom
+## Solution
 
-**In `src/components/HeroSection.tsx`:**
-- Remove `bg-[#A7792E10]` from the section (parent handles it now)
-
-**In `src/components/TrustedBy.tsx`:**
-- Add bottom padding to give space for the arrow clip
+**No code changes needed.** Simply republish the site to deploy the latest build that includes the `/pricing` route. After republishing, refreshing `/pricing` will work correctly because:
+1. Lovable's SPA fallback serves `index.html`
+2. React Router picks up the `/pricing` path and renders the correct component
 
