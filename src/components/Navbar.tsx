@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
@@ -13,34 +14,35 @@ const navLinks = [
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <div className="container mx-auto flex items-center justify-between py-4 px-4 md:px-8">
-        {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="Design Bakery" className="h-10" />
-        </a>
+        </Link>
 
-        {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`text-sm font-medium transition-colors hover:text-accent ${
-                link.active ? "text-accent" : "text-primary"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isRoute = link.href.startsWith("/");
+            const isActive = isRoute && location.pathname === link.href;
+            const className = `text-sm font-medium transition-colors hover:text-accent ${isActive ? "text-accent" : "text-primary"}`;
+            return isRoute ? (
+              <Link key={link.label} to={link.href} className={className}>
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} href={link.href} className={className}>
+                {link.label}
+              </a>
+            );
+          })}
           <Button className="rounded-full px-6 font-semibold text-sm">
             Submit Design Request
           </Button>
         </div>
 
-        {/* Mobile toggle */}
         <button
           className="md:hidden text-primary"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -50,21 +52,22 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Nav */}
       {mobileOpen && (
         <div className="md:hidden border-t bg-background px-4 pb-4 space-y-3">
-          {navLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`block text-sm font-medium py-2 ${
-                link.active ? "text-accent" : "text-primary"
-              }`}
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isRoute = link.href.startsWith("/");
+            const isActive = isRoute && location.pathname === link.href;
+            const className = `block text-sm font-medium py-2 ${isActive ? "text-accent" : "text-primary"}`;
+            return isRoute ? (
+              <Link key={link.label} to={link.href} className={className} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </Link>
+            ) : (
+              <a key={link.label} href={link.href} className={className} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </a>
+            );
+          })}
           <Button className="rounded-full w-full font-semibold text-sm">
             Submit Design Request
           </Button>
