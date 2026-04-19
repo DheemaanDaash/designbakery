@@ -110,7 +110,7 @@ const FreeTrialForm = () => {
 
       const { error } = await supabase
         .from("free_trial_signups")
-        .insert(parsed.data);
+        .insert([parsed.data]);
 
       if (error) throw error;
 
