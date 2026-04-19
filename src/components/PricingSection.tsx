@@ -61,16 +61,16 @@ const PricingSection = () => {
               className="relative bg-card rounded-2xl shadow-lg overflow-hidden border border-border"
             >
               {plan.popular && (
-                <div className="absolute top-0 left-0 w-28 h-28 overflow-hidden z-10 pointer-events-none">
+                <div className="absolute top-0 left-0 w-24 h-24 overflow-hidden z-10 pointer-events-none">
                   <div
-                    className="absolute bg-primary text-primary-foreground text-[11px] font-bold tracking-wider text-center shadow-md"
+                    className="absolute bg-primary text-primary-foreground text-[10px] font-bold tracking-wider text-center shadow-md"
                     style={{
-                      width: "150px",
+                      width: "130px",
                       transform: "rotate(-45deg)",
-                      top: "28px",
+                      top: "18px",
                       left: "-38px",
-                      paddingTop: "4px",
-                      paddingBottom: "4px",
+                      paddingTop: "3px",
+                      paddingBottom: "3px",
                     }}
                   >
                     POPULAR
