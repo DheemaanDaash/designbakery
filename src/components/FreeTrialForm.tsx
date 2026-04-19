@@ -108,9 +108,20 @@ const FreeTrialForm = () => {
         return;
       }
 
-      const { error } = await supabase
-        .from("free_trial_signups")
-        .insert([parsed.data]);
+      const d = parsed.data;
+      const { error } = await supabase.from("free_trial_signups").insert({
+        name: d.name,
+        email: d.email,
+        phone: d.phone,
+        brand_name: d.brand_name,
+        brand_website: d.brand_website || null,
+        social_facebook: d.social_facebook || null,
+        social_instagram: d.social_instagram || null,
+        social_other: d.social_other || null,
+        video_quantity: d.video_quantity,
+        static_quantity: d.static_quantity,
+        frequency: d.frequency,
+      });
 
       if (error) throw error;
 
