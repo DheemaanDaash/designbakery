@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FreeTrialForm from "@/components/FreeTrialForm";
 import { LayoutTemplate, Video } from "lucide-react";
 
 const FreeTrial = () => {
@@ -50,11 +51,18 @@ const FreeTrial = () => {
           </div>
 
           <a
-            href="#start-trial"
+            href="#signup-form"
             className="inline-block bg-primary text-primary-foreground font-bold text-sm md:text-base px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
           >
             Start A Free Trial
           </a>
+        </div>
+      </section>
+
+      {/* Signup Form */}
+      <section id="signup-form" className="pb-20 md:pb-28 px-4 md:px-8">
+        <div className="container mx-auto max-w-4xl">
+          <FreeTrialForm />
         </div>
       </section>
 
