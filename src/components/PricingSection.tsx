@@ -67,7 +67,7 @@ const PricingSection = () => {
                   </div>
                 </div>
               )}
-              <div className={`${plan.headerColor} py-6 px-6 text-center`}>
+              <div className={`${plan.headerColor} py-6 px-6 text-center rounded-t-2xl`}>
                 <h3 className="text-xl md:text-2xl font-bold text-primary">
                   {plan.title}
                 </h3>
