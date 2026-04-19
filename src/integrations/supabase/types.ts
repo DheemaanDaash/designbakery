@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      free_trial_signups: {
+        Row: {
+          brand_name: string
+          brand_website: string | null
+          created_at: string
+          email: string
+          frequency: string
+          id: string
+          name: string
+          phone: string
+          social_facebook: string | null
+          social_instagram: string | null
+          social_other: string | null
+          static_quantity: number
+          video_quantity: number
+        }
+        Insert: {
+          brand_name: string
+          brand_website?: string | null
+          created_at?: string
+          email: string
+          frequency: string
+          id?: string
+          name: string
+          phone: string
+          social_facebook?: string | null
+          social_instagram?: string | null
+          social_other?: string | null
+          static_quantity?: number
+          video_quantity?: number
+        }
+        Update: {
+          brand_name?: string
+          brand_website?: string | null
+          created_at?: string
+          email?: string
+          frequency?: string
+          id?: string
+          name?: string
+          phone?: string
+          social_facebook?: string | null
+          social_instagram?: string | null
+          social_other?: string | null
+          static_quantity?: number
+          video_quantity?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
