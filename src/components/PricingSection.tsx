@@ -58,16 +58,26 @@ const PricingSection = () => {
           {pricingPlans.map((plan) => (
             <div
               key={plan.title}
-              className="relative bg-card rounded-2xl shadow-lg border border-border"
+              className="relative bg-card rounded-2xl shadow-lg overflow-hidden border border-border"
             >
               {plan.popular && (
-                <div className="absolute -top-3 right-4 z-10">
-                  <div className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1.5 rounded-full shadow-md">
+                <div className="absolute top-0 left-0 w-28 h-28 overflow-hidden z-10 pointer-events-none">
+                  <div
+                    className="absolute bg-primary text-primary-foreground text-[11px] font-bold tracking-wider text-center shadow-md"
+                    style={{
+                      width: "150px",
+                      transform: "rotate(-45deg)",
+                      top: "28px",
+                      left: "-38px",
+                      paddingTop: "4px",
+                      paddingBottom: "4px",
+                    }}
+                  >
                     POPULAR
                   </div>
                 </div>
               )}
-              <div className={`${plan.headerColor} py-6 px-6 text-center rounded-t-2xl`}>
+              <div className={`${plan.headerColor} py-6 px-6 text-center`}>
                 <h3 className="text-xl md:text-2xl font-bold text-primary">
                   {plan.title}
                 </h3>
