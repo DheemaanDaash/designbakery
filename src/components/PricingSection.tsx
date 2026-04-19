@@ -58,7 +58,7 @@ const PricingSection = () => {
           {pricingPlans.map((plan) => (
             <div
               key={plan.title}
-              className="relative bg-card rounded-2xl shadow-lg overflow-hidden border border-border"
+              className="relative bg-card rounded-2xl shadow-lg border border-border"
             >
               {plan.popular && (
                 <div className="absolute -top-3 right-4 z-10">
