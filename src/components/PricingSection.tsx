@@ -124,7 +124,7 @@ const PricingSection = () => {
               customer engagement & acquisition.
             </p>
             <a
-              href="#learn-more"
+              href="/free-trial"
               className="inline-flex items-center gap-2 bg-[#5BC8F5] text-primary font-bold text-sm px-6 py-3 rounded-lg hover:bg-[#4AB8E5] transition-colors"
             >
               <ArrowRight size={16} /> Learn More
