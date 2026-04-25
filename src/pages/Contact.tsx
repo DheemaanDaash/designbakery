@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import EcommerceBanner from "@/components/EcommerceBanner";
+import TrustedBy from "@/components/TrustedBy";
 
 const Contact = () => {
   return (
@@ -18,21 +20,32 @@ const Contact = () => {
         <section className="py-20 md:py-32 pb-40 md:pb-56 px-4 md:px-8">
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary leading-tight tracking-tight">
-              Get in Touch
+              How can we help with your Graphic Needs!
             </h1>
-            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl mx-auto">
-              We'd love to hear from you.
+            <p className="mt-5 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+              Find the best plan for your business and get ready to receive
+              unbelievably creative designs.
             </p>
           </div>
         </section>
       </div>
 
       {/* Contact form — overlaps the hero by ~10% */}
-      <section className="px-4 md:px-8 pb-20 md:pb-28">
+      <section className="px-4 md:px-8">
         <div className="container mx-auto max-w-2xl relative z-10 -mt-24 md:-mt-32">
           <ContactForm />
         </div>
       </section>
+
+      {/* E-Commerce Banner */}
+      <section className="px-4 md:px-8 py-16 md:py-24">
+        <div className="container mx-auto max-w-6xl">
+          <EcommerceBanner />
+        </div>
+      </section>
+
+      {/* Trusted brands */}
+      <TrustedBy />
 
       <Footer />
     </div>
