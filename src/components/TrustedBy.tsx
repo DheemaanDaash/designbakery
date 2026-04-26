@@ -1,13 +1,10 @@
-import bengalLogo from "@/assets/bengal-enterprise.png";
-import dentalPixelLogo from "@/assets/dental-pixel.png";
-import parkingKoiLogo from "@/assets/parking-koi.png";
-import brainHouseLogo from "@/assets/brain-house.png";
+import { brandAssets } from "@/lib/brand-assets";
 
 const logos = [
-  { name: "Bengal Enterprise Inc.", src: bengalLogo },
-  { name: "Dental Pixel", src: dentalPixelLogo },
-  { name: "Parking Koi", src: parkingKoiLogo },
-  { name: "Brain House", src: brainHouseLogo },
+  { name: "Bengal Enterprise Inc.", src: brandAssets.trusted.bengal },
+  { name: "Dental Pixel", src: brandAssets.trusted.dentalPixel },
+  { name: "Parking Koi", src: brandAssets.trusted.parkingKoi },
+  { name: "Brain House", src: brandAssets.trusted.brainHouse },
 ];
 
 const TrustedBy = () => {
