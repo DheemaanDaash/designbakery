@@ -1,7 +1,6 @@
 import { ArrowRight, Image as ImageIcon } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
-const placeholders = Array.from({ length: 6 });
+const placeholders = Array.from({ length: 8 });
 
 const HeroSection = () => {
   return (
@@ -27,52 +26,26 @@ const HeroSection = () => {
             </a>
           </div>
 
-          {/* Right column: Vertical infinite-scroll image stack */}
+          {/* Right column: Horizontal infinite-scroll row (right → left) */}
           <div
             aria-hidden="true"
-            className="order-2 pointer-events-none w-full h-[420px] md:h-[480px] lg:h-[560px] overflow-hidden"
+            className="order-2 pointer-events-none w-full h-[360px] md:h-[420px] lg:h-[480px] overflow-hidden"
             style={{
               maskImage:
-                "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent, black 8%, black 92%, transparent)",
+                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
             }}
           >
-            <div className="grid grid-cols-2 gap-4">
-              {/* Column A — scrolls up */}
-              <div className="flex flex-col gap-4 animate-scroll-y motion-reduce:animate-none hover:[animation-play-state:paused]">
-                {[...placeholders, ...placeholders].map((_, i) => (
-                  <div
-                    key={`a-${i}`}
-                    className="w-full shrink-0 rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40"
-                  >
-                    <AspectRatio ratio={9 / 16}>
-                      <div className="flex h-full w-full items-center justify-center">
-                        <ImageIcon className="h-8 w-8 text-muted-foreground/40" />
-                      </div>
-                    </AspectRatio>
-                  </div>
-                ))}
-              </div>
-
-              {/* Column B — scrolls up, offset for visual rhythm */}
-              <div
-                className="flex flex-col gap-4 animate-scroll-y motion-reduce:animate-none hover:[animation-play-state:paused]"
-                style={{ animationDelay: "-12s" }}
-              >
-                {[...placeholders, ...placeholders].map((_, i) => (
-                  <div
-                    key={`b-${i}`}
-                    className="w-full shrink-0 rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40"
-                  >
-                    <AspectRatio ratio={9 / 16}>
-                      <div className="flex h-full w-full items-center justify-center">
-                        <ImageIcon className="h-8 w-8 text-muted-foreground/40" />
-                      </div>
-                    </AspectRatio>
-                  </div>
-                ))}
-              </div>
+            <div className="flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]">
+              {[...placeholders, ...placeholders].map((_, i) => (
+                <div
+                  key={i}
+                  className="h-full shrink-0 w-[202px] md:w-[236px] lg:w-[270px] rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40 flex items-center justify-center"
+                >
+                  <ImageIcon className="h-8 w-8 text-muted-foreground/40" />
+                </div>
+              ))}
             </div>
           </div>
         </div>

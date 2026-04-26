@@ -1,45 +1,41 @@
-# Hero — Infinite auto-scrolling 9:16 image column
+# Hero right column — single horizontal-scrolling 9:16 row (right → left)
 
-Add a column of multiple 9:16 (portrait) image placeholders on the **right side** of the hero that auto-scrolls **infinitely (vertical loop)**, sitting **behind** the hero text on the left.
+Replace the current two-column vertical scrolling stack in the hero's right column with **one horizontal row** of 9:16 portrait placeholders that scrolls infinitely from right to left.
 
-## Layout changes — `src/components/HeroSection.tsx`
-- Widen container: `max-w-4xl` → `max-w-6xl`, make it `relative overflow-hidden`.
-- Wrap text in a `relative z-10` block constrained to the **left half** on `md+` (`md:max-w-xl lg:max-w-2xl`). On mobile, text stays full width and the image column sits behind it (low opacity) so it doesn't crowd the copy.
-- Add the scrolling column as an `absolute` element on the right:
-  - `absolute right-0 md:right-8 top-0 bottom-0 w-[220px] lg:w-[260px] z-0`
-  - `pointer-events-none` so it never blocks the "Watch Demo" link.
-  - Top/bottom fade mask via `mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)` so images softly fade in/out at the edges.
-  - On mobile, lower opacity (`opacity-30 md:opacity-100`) so text remains readable.
+## Layout — `src/components/HeroSection.tsx`
 
-## Infinite vertical auto-scroll
-Pure CSS marquee — no JS, no extra libraries:
+Keep the existing responsive 2-column grid (text left, scroller right; stacks on mobile). Only the right column's contents change.
 
-1. Render the image list **twice** back-to-back inside a flex column.
-2. Animate the inner wrapper with `translateY(0)` → `translateY(-50%)` on a linear infinite loop. Because the list is duplicated, the seam is invisible and the loop is seamless.
-3. Add a new keyframe in `tailwind.config.ts`:
-   ```ts
-   keyframes: {
-     "scroll-y": {
-       "0%": { transform: "translateY(0)" },
-       "100%": { transform: "translateY(-50%)" },
-     },
-   },
-   animation: {
-     "scroll-y": "scroll-y 25s linear infinite",
-   }
-   ```
-4. Pause on hover: `hover:[animation-play-state:paused]` on the track.
-5. Respect reduced motion: `motion-reduce:animate-none`.
+Right column wrapper:
+- Replace the current `h-[420px] md:h-[480px] lg:h-[560px]` vertical container with a horizontal one:
+  - `w-full overflow-hidden`
+  - Fixed height matching one 9:16 card, e.g. `h-[360px] md:h-[420px] lg:h-[480px]`.
+  - Horizontal fade mask (left + right edges):
+    ```
+    maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)"
+    WebkitMaskImage: same
+    ```
+  - Keep `aria-hidden` and `pointer-events-none`.
 
-## Image placeholders
-- 6 placeholder cards (so duplicated = 12, plenty to fill the viewport).
-- Each card: `AspectRatio` (already in the project) with ratio `9/16`, `rounded-2xl`, soft border, subtle gradient bg (`bg-gradient-to-br from-muted to-muted/40`), and a centered `ImageIcon` from lucide so it's clearly a placeholder ready to be swapped for real images later.
-- Vertical gap between cards: `gap-4`.
+Track:
+- A single flex row: `flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]`.
+- Render the placeholder array twice (`[...placeholders, ...placeholders]`) so the `translateX(0) → translateX(-50%)` loop is seamless.
+- Each card:
+  - `h-full shrink-0 rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40`
+  - Width derived from height via aspect ratio. Since AspectRatio is width-driven, simplest is to set width directly using Tailwind arbitrary values matching the height × 9/16:
+    - `w-[202px] md:w-[236px] lg:w-[270px]` (≈ height × 9/16)
+  - Inside, an empty div with the centered `ImageIcon` (no `AspectRatio` wrapper needed since width/height are fixed and already 9:16).
+
+Direction (right → left):
+- The existing `scroll-x` keyframe in `tailwind.config.ts` already animates `translateX(0) → translateX(-50%)`, which moves the track leftward — i.e. visually content scrolls right-to-left. ✅ No Tailwind config change needed.
+
+## Cleanup
+- Remove the two vertical column blocks (Column A / Column B) and their `animate-scroll-y` usage from `HeroSection.tsx`.
+- Remove the unused `AspectRatio` import from `HeroSection.tsx`.
 
 ## Files touched
-- `src/components/HeroSection.tsx` — restructure + add scrolling column.
-- `tailwind.config.ts` — add `scroll-y` keyframe + animation.
+- `src/components/HeroSection.tsx` — swap right-column contents to a single horizontal row.
 
-## Notes / future
-- Swap placeholders for real images by replacing the array contents with `<img src=... className="h-full w-full object-cover rounded-2xl" />`.
-- Speed is controlled by the `25s` duration in the animation — easy to tune.
+## Notes
+- Speed is controlled by the `scroll-x` animation duration (currently `40s`) in `tailwind.config.ts` — easy to tune later if needed.
+- To swap placeholders for real images later: replace each card's inner content with `<img className="h-full w-full object-cover" />`.
