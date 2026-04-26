@@ -1,6 +1,7 @@
 import { Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import { brandAssets } from "@/lib/brand-assets";
+const logo = brandAssets.logo;
 
 const Footer = () => {
   return (
