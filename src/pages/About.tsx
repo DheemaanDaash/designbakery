@@ -27,22 +27,17 @@ const values = [
 
 const team = [
   {
-    name: "Dhiman Roy",
+    name: "Dhiman Dash",
     role: "Founder & Creative Director",
     bio: "Leads the studio's creative vision with 10+ years shaping brands across three continents.",
   },
   {
-    name: "Ayesha Rahman",
+    name: "Tuly Dhar",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
   },
   {
-    name: "Rafiul Islam",
-    role: "Lead UI/UX Designer",
-    bio: "Designs intuitive interfaces that customers actually love to use.",
-  },
-  {
-    name: "Nabila Karim",
+    name: "Mehdi Hasan Sakib",
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
   },
