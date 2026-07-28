@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Pricing", href: "/pricing" },
   { label: "Contact", href: "/contact" },
   { label: "Blog", href: "#blog" },
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
 ];
 
 const Navbar = () => {
