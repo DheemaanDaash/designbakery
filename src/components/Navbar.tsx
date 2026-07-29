@@ -39,8 +39,8 @@ const Navbar = () => {
               </a>
             );
           })}
-          <Button className="rounded-full px-6 font-semibold text-sm">
-            Submit Design Request
+          <Button asChild className="rounded-full px-6 font-semibold text-sm">
+            <Link to="/design-request">Submit Design Request</Link>
           </Button>
         </div>
 
@@ -69,8 +69,10 @@ const Navbar = () => {
               </a>
             );
           })}
-          <Button className="rounded-full w-full font-semibold text-sm">
-            Submit Design Request
+          <Button asChild className="rounded-full w-full font-semibold text-sm">
+            <Link to="/design-request" onClick={() => setMobileOpen(false)}>
+              Submit Design Request
+            </Link>
           </Button>
         </div>
       )}

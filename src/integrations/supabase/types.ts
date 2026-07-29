@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      design_requests: {
+        Row: {
+          created_at: string
+          custom_height: string | null
+          custom_width: string | null
+          deadline: string
+          design_content: string
+          design_type: string
+          dimension: string
+          email: string
+          id: string
+          reference_image_url: string | null
+          reference_link: string | null
+          request_name: string
+        }
+        Insert: {
+          created_at?: string
+          custom_height?: string | null
+          custom_width?: string | null
+          deadline: string
+          design_content: string
+          design_type: string
+          dimension: string
+          email: string
+          id?: string
+          reference_image_url?: string | null
+          reference_link?: string | null
+          request_name: string
+        }
+        Update: {
+          created_at?: string
+          custom_height?: string | null
+          custom_width?: string | null
+          deadline?: string
+          design_content?: string
+          design_type?: string
+          dimension?: string
+          email?: string
+          id?: string
+          reference_image_url?: string | null
+          reference_link?: string | null
+          request_name?: string
+        }
+        Relationships: []
+      }
       free_trial_signups: {
         Row: {
           brand_name: string
