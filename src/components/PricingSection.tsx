@@ -1,5 +1,6 @@
 import EcommerceBanner from "./EcommerceBanner";
 import { formatPrice, useGeoCurrency } from "@/lib/pricing";
+import { Link } from "react-router-dom";
 
 // Base prices in USD (already includes the 40% uplift).
 const pricingPlans = [
@@ -98,12 +99,12 @@ const PricingSection = () => {
                   <p className="text-muted-foreground text-sm mb-8 px-2 min-h-[60px]">
                     {plan.description}
                   </p>
-                  <a
-                    href="#learn-more"
+                  <Link
+                    to="/contact"
                     className="inline-block bg-primary text-primary-foreground font-bold text-sm px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors mb-6"
                   >
                     Learn More
-                  </a>
+                  </Link>
                   {currency.code !== "USD" && (
                     <p className="text-muted-foreground text-xs">
                       {usdPrice}/Month for International Payment.
