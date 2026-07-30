@@ -27,17 +27,17 @@ const values = [
 
 const team = [
   {
-    name: "Dhiman Dash",
+    name: "D. Dash",
     role: "Founder & Creative Director",
     bio: "Leads the studio's creative vision with 10+ years shaping brands across three continents.",
   },
   {
-    name: "Tuly Dhar",
+    name: "T. Dhar",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
   },
   {
-    name: "Mehdi Hasan Sakib",
+    name: "M.H. Sakib",
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
   },
