@@ -41,6 +41,11 @@ const team = [
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
   },
+  {
+    name: "A. Das",
+    role: "Finance Manager",
+    bio: "Keeps the studio's operations and finances running smoothly behind every project.",
+  },
 ];
 
 const initials = (name: string) =>
