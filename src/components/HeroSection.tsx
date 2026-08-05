@@ -53,12 +53,17 @@ const HeroSection = () => {
             }}
           >
             <div className="flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]">
-              {[...placeholders, ...placeholders].map((_, i) => (
+              {[...showcase, ...showcase].map((item, i) => (
                 <div
                   key={i}
-                  className="h-full shrink-0 w-[202px] md:w-[236px] lg:w-[270px] rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40 flex items-center justify-center"
+                  className="h-full shrink-0 w-[202px] md:w-[236px] lg:w-[270px] rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-muted"
                 >
-                  <ImageIcon className="h-8 w-8 text-muted-foreground/40" />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               ))}
             </div>
