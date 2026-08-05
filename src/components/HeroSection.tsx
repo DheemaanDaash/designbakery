@@ -1,20 +1,14 @@
 import { ArrowRight } from "lucide-react";
-import hero4 from "@/assets/hero-4.png.asset.json";
-import hero5 from "@/assets/hero-5.png.asset.json";
-import hero6 from "@/assets/hero-6.png.asset.json";
-import hero7 from "@/assets/hero-7.png.asset.json";
-import hero8 from "@/assets/hero-8.png.asset.json";
-import hero9 from "@/assets/hero-9.png.asset.json";
-import hero10 from "@/assets/hero-10.png.asset.json";
+import { brandAssets } from "@/lib/brand-assets";
 
 const showcase = [
-  { src: hero4.url, alt: "Best Burger food delivery app UI design" },
-  { src: hero5.url, alt: "Department of CSE hoodie apparel design" },
-  { src: hero6.url, alt: "Vector portrait illustration in pink tones" },
-  { src: hero7.url, alt: "Tea brand packaging design" },
-  { src: hero8.url, alt: "Dental Pixel logo and brand guideline" },
-  { src: hero9.url, alt: "Halloween sale social media campaign design" },
-  { src: hero10.url, alt: "Special Burger restaurant promo design" },
+  { src: brandAssets.hero.hero4, alt: "Best Burger food delivery app UI design" },
+  { src: brandAssets.hero.hero5, alt: "Department of CSE hoodie apparel design" },
+  { src: brandAssets.hero.hero6, alt: "Vector portrait illustration in pink tones" },
+  { src: brandAssets.hero.hero7, alt: "Tea brand packaging design" },
+  { src: brandAssets.hero.hero8, alt: "Dental Pixel logo and brand guideline" },
+  { src: brandAssets.hero.hero9, alt: "Halloween sale social media campaign design" },
+  { src: brandAssets.hero.hero10, alt: "Special Burger restaurant promo design" },
 ];
 
 const HeroSection = () => {
