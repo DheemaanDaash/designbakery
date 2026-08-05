@@ -1,6 +1,21 @@
-import { ArrowRight, Image as ImageIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import hero4 from "@/assets/hero-4.png.asset.json";
+import hero5 from "@/assets/hero-5.png.asset.json";
+import hero6 from "@/assets/hero-6.png.asset.json";
+import hero7 from "@/assets/hero-7.png.asset.json";
+import hero8 from "@/assets/hero-8.png.asset.json";
+import hero9 from "@/assets/hero-9.png.asset.json";
+import hero10 from "@/assets/hero-10.png.asset.json";
 
-const placeholders = Array.from({ length: 8 });
+const showcase = [
+  { src: hero4.url, alt: "Best Burger food delivery app UI design" },
+  { src: hero5.url, alt: "Department of CSE hoodie apparel design" },
+  { src: hero6.url, alt: "Vector portrait illustration in pink tones" },
+  { src: hero7.url, alt: "Tea brand packaging design" },
+  { src: hero8.url, alt: "Dental Pixel logo and brand guideline" },
+  { src: hero9.url, alt: "Halloween sale social media campaign design" },
+  { src: hero10.url, alt: "Special Burger restaurant promo design" },
+];
 
 const HeroSection = () => {
   return (
