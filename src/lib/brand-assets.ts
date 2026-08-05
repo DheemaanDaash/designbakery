@@ -11,4 +11,13 @@ export const brandAssets = {
     parkingKoi: `${CDN}/trusted/parking-koi.png`,
     brainHouse: `${CDN}/trusted/brain-house.png`,
   },
+  hero: {
+    hero4: `${CDN}/hero/hero-4.png`,
+    hero5: `${CDN}/hero/hero-5.png`,
+    hero6: `${CDN}/hero/hero-6.png`,
+    hero7: `${CDN}/hero/hero-7.png`,
+    hero8: `${CDN}/hero/hero-8.png`,
+    hero9: `${CDN}/hero/hero-9.png`,
+    hero10: `${CDN}/hero/hero-10.png`,
+  },
 };
