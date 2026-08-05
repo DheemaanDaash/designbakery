@@ -34,10 +34,10 @@ const HeroSection = () => {
               unlimited graphic design and custom illustrations solutions.
             </p>
             <a
-              href="#demo"
+              href="/contact"
               className="relative z-10 inline-flex items-center gap-2 mt-8 text-sm font-bold text-[hsl(195,100%,55%)] hover:text-[hsl(195,100%,45%)] transition-colors"
             >
-              Watch Demo <ArrowRight size={18} />
+              Get Started <ArrowRight size={18} />
             </a>
           </div>
 
