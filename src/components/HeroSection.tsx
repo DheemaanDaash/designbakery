@@ -1,6 +1,21 @@
-import { ArrowRight, Image as ImageIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import hero4 from "@/assets/hero-4.png.asset.json";
+import hero5 from "@/assets/hero-5.png.asset.json";
+import hero6 from "@/assets/hero-6.png.asset.json";
+import hero7 from "@/assets/hero-7.png.asset.json";
+import hero8 from "@/assets/hero-8.png.asset.json";
+import hero9 from "@/assets/hero-9.png.asset.json";
+import hero10 from "@/assets/hero-10.png.asset.json";
 
-const placeholders = Array.from({ length: 8 });
+const showcase = [
+  { src: hero4.url, alt: "Best Burger food delivery app UI design" },
+  { src: hero5.url, alt: "Department of CSE hoodie apparel design" },
+  { src: hero6.url, alt: "Vector portrait illustration in pink tones" },
+  { src: hero7.url, alt: "Tea brand packaging design" },
+  { src: hero8.url, alt: "Dental Pixel logo and brand guideline" },
+  { src: hero9.url, alt: "Halloween sale social media campaign design" },
+  { src: hero10.url, alt: "Special Burger restaurant promo design" },
+];
 
 const HeroSection = () => {
   return (
@@ -38,12 +53,17 @@ const HeroSection = () => {
             }}
           >
             <div className="flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]">
-              {[...placeholders, ...placeholders].map((_, i) => (
+              {[...showcase, ...showcase].map((item, i) => (
                 <div
                   key={i}
-                  className="h-full shrink-0 w-[202px] md:w-[236px] lg:w-[270px] rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40 flex items-center justify-center"
+                  className="h-full shrink-0 w-[202px] md:w-[236px] lg:w-[270px] rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-muted"
                 >
-                  <ImageIcon className="h-8 w-8 text-muted-foreground/40" />
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    loading={i < 3 ? "eager" : "lazy"}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               ))}
             </div>
