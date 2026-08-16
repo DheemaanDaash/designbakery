@@ -10,6 +10,7 @@ import FreeTrial from "./pages/FreeTrial.tsx";
 import Contact from "./pages/Contact.tsx";
 import About from "./pages/About.tsx";
 import DesignRequest from "./pages/DesignRequest.tsx";
+import BrandGuidelines from "./pages/BrandGuidelines.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
