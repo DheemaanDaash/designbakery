@@ -99,10 +99,10 @@ const About = () => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-              { k: "5+", v: "Years in business" },
-              { k: "200+", v: "Brands served" },
-              { k: "10k+", v: "Designs delivered" },
-              { k: "20+", v: "Countries" },
+              { k: "6+", v: "Years in business" },
+              { k: "50+", v: "Brands served" },
+              { k: "9k+", v: "Designs delivered" },
+              { k: "5+", v: "Countries" },
             ].map((s) => (
               <div
                 key={s.v}
