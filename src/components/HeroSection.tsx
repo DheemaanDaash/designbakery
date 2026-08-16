@@ -41,9 +41,9 @@ const HeroSection = () => {
             className="order-2 pointer-events-none w-full h-[360px] md:h-[420px] lg:h-[480px] overflow-hidden"
             style={{
               maskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+                "linear-gradient(to right, transparent 0%, black 28%, black 72%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+                "linear-gradient(to right, transparent 0%, black 28%, black 72%, transparent 100%)",
             }}
           >
             <div className="flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]">
