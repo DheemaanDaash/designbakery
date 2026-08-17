@@ -57,10 +57,6 @@ const Footer = () => {
             <h4 className="font-bold text-primary mb-4">Contact Info</h4>
             <ul className="space-y-3 text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Phone className="w-5 h-5 text-primary" />
-                <a href="tel:+8801858638829" className="hover:text-primary transition-colors">Call Us</a>
-              </li>
-              <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 text-primary" />
                 <a href="mailto:hello@designbakerybd.com" className="hover:text-primary transition-colors">Email Us</a>
               </li>
