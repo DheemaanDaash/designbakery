@@ -1,4 +1,4 @@
-import { Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { brandAssets } from "@/lib/brand-assets";
 const logo = brandAssets.logo;
