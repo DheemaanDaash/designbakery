@@ -148,23 +148,6 @@ const BrandGuidelines = () => {
         </div>
       </section>
 
-      {/* Imagery */}
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-[#A7792E10]">
-        <div className="container mx-auto max-w-5xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-8">Work Samples</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {Object.entries(brandAssets.hero).map(([key, src]) => (
-              <img
-                key={key}
-                src={src as string}
-                alt={`Design Bakery portfolio sample ${key}`}
-                loading="lazy"
-                className="w-full aspect-[9/16] object-cover rounded-xl border border-border"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>
