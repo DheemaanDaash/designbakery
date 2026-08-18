@@ -37,7 +37,7 @@ const team = [
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
   },
   {
-    name: "M.H. Sakib",
+    name: "M. Hasan",
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
   },
