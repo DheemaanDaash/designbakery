@@ -25,6 +25,7 @@ export const brandAssets = {
     tDhar: `${CDN}/team/T._Dhar_-_COO_Head_of_Design_-_Design_Bakery.jpeg`,
     mHasan: `${CDN}/team/Mehdi_Hasan_-_Illustration_Lead_-_Design_Bakery.jpeg`,
     aDas: `${CDN}/team/Amit_Das_-_Finance_-_Design_Bakery.jpeg`,
+    trinaR: `${CDN}/team/Trina_R._-_HR_Executive_-_Design_Bakery.jpeg`,
     shadheenDash: `${CDN}/team/Shadheen_Dash_-_Co-founder_CTO_-_Design_Bakery.png`,
     swapnilBhowmik: `${CDN}/team/Swapnil_Bhowmik_-_Backend_Developer-Design_Bakery.png`,
   },

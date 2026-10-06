@@ -61,6 +61,12 @@ const team = [
     bio: "Keeps the studio's operations and finances running smoothly behind every project.",
     photo: brandAssets.team.aDas,
   },
+  {
+    name: "Trina R.",
+    role: "HR Executive",
+    bio: "Supports the team's growth and wellbeing, keeping the studio a great place to design.",
+    photo: brandAssets.team.trinaR,
+  },
 ];
 
 const About = () => {
