@@ -38,7 +38,7 @@ const team = [
     photo: brandAssets.team.shadheenDash,
   },
   {
-    name: "T. Dhar",
+    name: "T. Rani",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
     photo: brandAssets.team.tDhar,
@@ -62,7 +62,7 @@ const team = [
     photo: brandAssets.team.aDas,
   },
   {
-    name: "Trina R.",
+    name: "Trina Dhar",
     role: "HR Executive",
     bio: "Supports the team's growth and wellbeing, keeping the studio a great place to design.",
     photo: brandAssets.team.trinaR,
