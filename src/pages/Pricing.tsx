@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import PricingSection from "@/components/PricingSection";
 import Footer from "@/components/Footer";

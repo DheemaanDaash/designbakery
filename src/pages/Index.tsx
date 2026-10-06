@@ -1,3 +1,4 @@
+import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustedBy from "@/components/TrustedBy";
