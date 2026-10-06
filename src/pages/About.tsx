@@ -1,55 +1,34 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { brandAssets } from "@/lib/brand-assets";
 import { Sparkles, Users, Rocket, Heart } from "lucide-react";
-
-const values = [
-  {
-    icon: Sparkles,
-    title: "Creativity First",
-    description: "Every pixel is crafted with intention. We turn briefs into bold, on-brand design.",
-  },
-  {
-    icon: Rocket,
-    title: "Speed Without Compromise",
-    description: "Fast turnarounds powered by dedicated designers, not stock templates.",
-  },
-  {
-    icon: Users,
-    title: "True Partnership",
-    description: "We become an extension of your team — unlimited requests, unlimited revisions.",
-  },
-  {
-    icon: Heart,
-    title: "Care In Every Detail",
-    description: "From kickoff to final delivery, quality and communication stay a priority.",
-  },
-];
-
+...
 const team = [
   {
     name: "D. Dash",
     role: "Founder & Creative Director",
     bio: "Leads the studio's creative vision with 10+ years shaping brands across three continents.",
+    photo: brandAssets.team.dDash,
   },
   {
     name: "T. Dhar",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
+    photo: brandAssets.team.tDhar,
   },
   {
     name: "M. Hasan",
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
+    photo: brandAssets.team.mHasan,
   },
   {
     name: "A. Das",
     role: "Finance Manager",
     bio: "Keeps the studio's operations and finances running smoothly behind every project.",
+    photo: brandAssets.team.aDas,
   },
 ];
-
-const initials = (name: string) =>
-  name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
 
 const About = () => {
   return (
