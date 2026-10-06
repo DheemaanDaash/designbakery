@@ -44,7 +44,7 @@ const team = [
     photo: brandAssets.team.tDhar,
   },
   {
-    name: "S. Bhowmik",
+    name: "Swapnil Bhowmik",
     role: "Backend Developer",
     bio: "Builds the reliable backend infrastructure powering our clients' digital products.",
     photo: brandAssets.team.swapnilBhowmik,
@@ -56,7 +56,7 @@ const team = [
     photo: brandAssets.team.mHasan,
   },
   {
-    name: "A. Das",
+    name: "Amit Das",
     role: "Finance Manager",
     bio: "Keeps the studio's operations and finances running smoothly behind every project.",
     photo: brandAssets.team.aDas,
