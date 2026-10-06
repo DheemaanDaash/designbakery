@@ -32,7 +32,7 @@ const team = [
     photo: brandAssets.team.dDash,
   },
   {
-    name: "S. Dash",
+    name: "Shadheen Dash",
     role: "Co-founder & CTO",
     bio: "Architects the technology and systems that keep every project delivered on time.",
     photo: brandAssets.team.shadheenDash,
