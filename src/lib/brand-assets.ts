@@ -20,4 +20,12 @@ export const brandAssets = {
     hero9: `${CDN}/hero/hero-9.png`,
     hero10: `${CDN}/hero/hero-10.png`,
   },
+  team: {
+    dDash: `${CDN}/team/d-dash.png`,
+    tDhar: `${CDN}/team/t-dhar.jpeg`,
+    mHasan: `${CDN}/team/m-hasan.jpeg`,
+    aDas: `${CDN}/team/a-das.jpeg`,
+    shadheenDash: `${CDN}/team/shadheen-dash.png`,
+    swapnilBhowmik: `${CDN}/team/swapnil-bhowmik.png`,
+  },
 };
