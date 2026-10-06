@@ -21,11 +21,11 @@ export const brandAssets = {
     hero10: `${CDN}/hero/hero-10.png`,
   },
   team: {
-    dDash: `${CDN}/team/d-dash.png`,
-    tDhar: `${CDN}/team/t-dhar.jpeg`,
-    mHasan: `${CDN}/team/m-hasan.jpeg`,
-    aDas: `${CDN}/team/a-das.jpeg`,
-    shadheenDash: `${CDN}/team/shadheen-dash.png`,
-    swapnilBhowmik: `${CDN}/team/swapnil-bhowmik.png`,
+    dDash: `${CDN}/team/D._Dash_-_Founder_CEO_-_Design_Bakery.png`,
+    tDhar: `${CDN}/team/T._Dhar_-_COO_Head_of_Design_-_Design_Bakery.jpeg`,
+    mHasan: `${CDN}/team/Mehdi_Hasan_-_Illustration_Lead_-_Design_Bakery.jpeg`,
+    aDas: `${CDN}/team/Amit_Das_-_Finance_-_Design_Bakery.jpeg`,
+    shadheenDash: `${CDN}/team/Shadheen_Dash_-_Co-founder_CTO_-_Design_Bakery.png`,
+    swapnilBhowmik: `${CDN}/team/Swapnil_Bhowmik_-_Backend_Developer-Design_Bakery.png`,
   },
 };

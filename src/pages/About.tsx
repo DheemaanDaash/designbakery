@@ -32,10 +32,22 @@ const team = [
     photo: brandAssets.team.dDash,
   },
   {
+    name: "S. Dash",
+    role: "Co-founder & CTO",
+    bio: "Architects the technology and systems that keep every project delivered on time.",
+    photo: brandAssets.team.shadheenDash,
+  },
+  {
     name: "T. Dhar",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
     photo: brandAssets.team.tDhar,
+  },
+  {
+    name: "S. Bhowmik",
+    role: "Backend Developer",
+    bio: "Builds the reliable backend infrastructure powering our clients' digital products.",
+    photo: brandAssets.team.swapnilBhowmik,
   },
   {
     name: "M. Hasan",
@@ -157,7 +169,7 @@ const About = () => {
               A small, senior team obsessed with your brand's success.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {team.map((member) => (
               <div
                 key={member.name}
