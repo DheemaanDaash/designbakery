@@ -142,10 +142,13 @@ const About = () => {
                 key={member.name}
                 className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm"
               >
-                <div className="aspect-square bg-gradient-to-br from-[#F0B666] to-[#5BC8F5] flex items-center justify-center">
-                  <span className="text-5xl font-bold text-primary-foreground">
-                    {initials(member.name)}
-                  </span>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-5 text-center">
                   <h3 className="text-lg font-bold text-primary">{member.name}</h3>
