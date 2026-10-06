@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { brandAssets } from "@/lib/brand-assets";
 import { Sparkles, Users, Rocket, Heart } from "lucide-react";
-
 const values = [
   {
     icon: Sparkles,
@@ -24,32 +24,32 @@ const values = [
     description: "From kickoff to final delivery, quality and communication stay a priority.",
   },
 ];
-
 const team = [
   {
     name: "D. Dash",
     role: "Founder & Creative Director",
     bio: "Leads the studio's creative vision with 10+ years shaping brands across three continents.",
+    photo: brandAssets.team.dDash,
   },
   {
     name: "T. Dhar",
     role: "Head of Design",
     bio: "Turns strategy into scroll-stopping visuals for e-commerce and SaaS brands.",
+    photo: brandAssets.team.tDhar,
   },
   {
     name: "M. Hasan",
     role: "Illustration Lead",
     bio: "Crafts custom illustrations that give brands a personality of their own.",
+    photo: brandAssets.team.mHasan,
   },
   {
     name: "A. Das",
     role: "Finance Manager",
     bio: "Keeps the studio's operations and finances running smoothly behind every project.",
+    photo: brandAssets.team.aDas,
   },
 ];
-
-const initials = (name: string) =>
-  name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
 
 const About = () => {
   return (
@@ -163,10 +163,13 @@ const About = () => {
                 key={member.name}
                 className="bg-card rounded-2xl overflow-hidden border border-border shadow-sm"
               >
-                <div className="aspect-square bg-gradient-to-br from-[#F0B666] to-[#5BC8F5] flex items-center justify-center">
-                  <span className="text-5xl font-bold text-primary-foreground">
-                    {initials(member.name)}
-                  </span>
+                <div className="aspect-square overflow-hidden">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-5 text-center">
                   <h3 className="text-lg font-bold text-primary">{member.name}</h3>
