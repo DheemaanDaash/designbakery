@@ -24,6 +24,11 @@ const typography = [
 const BrandGuidelines = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Brand Guidelines & Assets | Design Bakery"
+        description="Download the Design Bakery brand kit — logo, favicon, brand colors and typography for press and partner use."
+        path="/brand-guidelines"
+      />
       <Navbar />
 
       <div

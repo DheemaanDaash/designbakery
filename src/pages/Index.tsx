@@ -10,6 +10,11 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Design Bakery — Unlimited Graphic Design Subscription"
+        description="Scale your business and fix your design bottleneck with flat-rate, unlimited graphic design and custom illustration solutions."
+        path="/"
+      />
       <Navbar />
       <div
         className="bg-[#A7792E10]"

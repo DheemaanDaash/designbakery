@@ -7,6 +7,11 @@ import { LayoutTemplate, Video } from "lucide-react";
 const FreeTrial = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Seo
+        title="Start Your Free E-Commerce Design Trial | Design Bakery"
+        description="Try Design Bakery free for 14 days — template designs and a marketing video for your e-commerce brand, no commitment required."
+        path="/free-trial"
+      />
       <Navbar />
 
       {/* Hero */}
