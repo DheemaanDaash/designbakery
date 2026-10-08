@@ -113,7 +113,7 @@ const About = () => {
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
               What began as a small studio in Dhaka has grown into a global team serving
-              founders, marketers, and e-commerce brands across 20+ countries — all on a
+              founders, marketers, and e-commerce brands across 5+ countries — all on a
               simple flat-rate subscription with unlimited requests and unlimited revisions.
             </p>
             <p className="text-muted-foreground leading-relaxed">
