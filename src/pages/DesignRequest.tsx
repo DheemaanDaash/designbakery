@@ -6,6 +6,11 @@ import DesignRequestForm from "@/components/DesignRequestForm";
 const DesignRequest = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Seo
+        title="Submit a New Design Request | Design Bakery"
+        description="Request any design — banners, logos, thumbnails, flyers and more. Tell us your vision and relax while our designers execute it."
+        path="/design-request"
+      />
       <Navbar />
 
       <div

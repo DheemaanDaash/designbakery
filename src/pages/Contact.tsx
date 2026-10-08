@@ -8,6 +8,11 @@ import TrustedBy from "@/components/TrustedBy";
 const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Seo
+        title="Contact Us — How Can We Help With Your Graphic Needs | Design Bakery"
+        description="Have a design question or ready to start a project? Contact the Design Bakery team and hear back within one business day."
+        path="/contact"
+      />
       <Navbar />
 
       {/* Hero — same beige clipped background as the home page */}

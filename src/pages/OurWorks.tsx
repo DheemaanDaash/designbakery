@@ -6,6 +6,11 @@ import { brandAssets } from "@/lib/brand-assets";
 const OurWorks = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="Our Works — Graphic Design Portfolio | Design Bakery"
+        description="Browse Design Bakery's portfolio of banners, packaging, brand kits, illustrations and more created for real brands."
+        path="/our-works"
+      />
       <Navbar />
 
       <div

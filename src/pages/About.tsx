@@ -73,6 +73,11 @@ const team = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="About Design Bakery — Meet The Team Behind Your Designs"
+        description="Learn Design Bakery's story, values and the team crafting unlimited graphic design for ambitious brands worldwide since 2021."
+        path="/about"
+      />
       <Navbar />
 
       {/* Hero — matches home page treatment */}
