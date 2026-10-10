@@ -1,41 +1,56 @@
-# Hero right column — single horizontal-scrolling 9:16 row (right → left)
+# Phase 1 Inspection Report — Agency Admin Panel
 
-Replace the current two-column vertical scrolling stack in the hero's right column with **one horizontal row** of 9:16 portrait placeholders that scrolls infinitely from right to left.
+No code or database changes were made. Approving this report starts Phase 2 (a detailed schema/RLS design for approval), not implementation.
 
-## Layout — `src/components/HeroSection.tsx`
+## 1. Existing architecture
+- React 18 + Vite + TypeScript SPA, Tailwind + shadcn/ui, react-router v6, TanStack Query, react-hook-form + zod, react-helmet-async (per-page SEO via `Seo` component).
+- Public routes: `/`, `/pricing`, `/free-trial`, `/contact`, `/about`, `/design-request`, `/brand-guidelines`, `/our-works`. Sitemap generated at build time from a script.
+- Deployment: Lovable hosting plus a GitHub to Vercel deploy with `vercel.json` SPA rewrites (new `/admin` and `/portal` routes will work on refresh without changes).
+- Backend: Lovable Cloud (Postgres, Auth, Storage, Edge Functions). No edge functions exist yet. No auth users exist. Email/password sign-in is not enabled yet.
 
-Keep the existing responsive 2-column grid (text left, scroller right; stacks on mobile). Only the right column's contents change.
+## 2. Reusable pieces
+- UI kit: full shadcn set already installed (table, dialog, tabs, select, calendar, badge, form, sonner, etc.). No new UI packages needed.
+- `Navbar`, `Footer`, `Seo`, brand tokens in `index.css`, `brand-assets.ts` storage URL helper.
+- `DesignRequestForm` (zod validation, file upload to `design-references` bucket, insert into `design_requests`).
+- Existing Supabase client and generated types.
 
-Right column wrapper:
-- Replace the current `h-[420px] md:h-[480px] lg:h-[560px]` vertical container with a horizontal one:
-  - `w-full overflow-hidden`
-  - Fixed height matching one 9:16 card, e.g. `h-[360px] md:h-[420px] lg:h-[480px]`.
-  - Horizontal fade mask (left + right edges):
-    ```
-    maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)"
-    WebkitMaskImage: same
-    ```
-  - Keep `aria-hidden` and `pointer-events-none`.
+## 3. Blog storage
+- No blog exists. Navbar links to `#blog` and Footer to `#`; there is no blog page, data file or table.
+- Therefore no content migration and no existing blog URLs/SEO to preserve. A new `blog_posts` table plus public `/blog` and `/blog/:slug` routes are needed (and added to the sitemap).
 
-Track:
-- A single flex row: `flex flex-row gap-4 h-full w-max animate-scroll-x motion-reduce:animate-none hover:[animation-play-state:paused]`.
-- Render the placeholder array twice (`[...placeholders, ...placeholders]`) so the `translateX(0) → translateX(-50%)` loop is seamless.
-- Each card:
-  - `h-full shrink-0 rounded-2xl overflow-hidden border border-border/50 shadow-sm bg-gradient-to-br from-muted to-muted/40`
-  - Width derived from height via aspect ratio. Since AspectRatio is width-driven, simplest is to set width directly using Tailwind arbitrary values matching the height × 9/16:
-    - `w-[202px] md:w-[236px] lg:w-[270px]` (≈ height × 9/16)
-  - Inside, an empty div with the centered `ImageIcon` (no `AspectRatio` wrapper needed since width/height are fixed and already 9:16).
+## 4. Current form handling
+- Design request: writes to `design_requests` (anonymous insert allowed, no read access). No owner, status, notes or dates beyond `created_at`. Currently 0 rows.
+- Free trial: writes to `free_trial_signups` (anonymous insert only). 0 rows. Out of scope but remains working.
+- Contact form: does NOT save anything — it fakes a 400ms delay and shows success. Messages are currently lost. Needs a real table.
+- Validation is client-side only (zod); database has no length/format checks. No rate limiting on any form.
 
-Direction (right → left):
-- The existing `scroll-x` keyframe in `tailwind.config.ts` already animates `translateX(0) → translateX(-50%)`, which moves the track leftward — i.e. visually content scrolls right-to-left. ✅ No Tailwind config change needed.
+## 5. Storage setup
+- `brand-assets` (public read) — fine as is.
+- `design-references` (private) with an "anyone can upload" policy and no read policy. Uploaded paths are random UUIDs, not tied to an owner.
 
-## Cleanup
-- Remove the two vertical column blocks (Column A / Column B) and their `animate-scroll-y` usage from `HeroSection.tsx`.
-- Remove the unused `AspectRatio` import from `HeroSection.tsx`.
+## 6. Proposed database changes (to be detailed in Phase 2)
+Kept to the minimum; extend rather than duplicate.
 
-## Files touched
-- `src/components/HeroSection.tsx` — swap right-column contents to a single horizontal row.
+| Logical entity | Proposal |
+|---|---|
+| profiles | New `profiles` table (id = auth user, name, email, created/updated) with signup trigger |
+| admin_users | Use a `user_roles` table + `app_role` enum + `has_role()` security-definer function (standard secure pattern; no public admin signup) |
+| design_requests | Extend existing table: `client_id` (nullable for guest submissions), `status` (7 values, default New), `updated_at`, `completed_at`, `delivery_link`. Internal notes in a separate admin-only table so clients can never read them |
+| request_status_history | New table: request_id, from/to status, changed_by, changed_at; written by trigger so it cannot be forged |
+| contact_submissions | New table: name, email, phone, message, status (New/In Progress/Replied/Archived), private notes; anonymous insert only, admin read/update |
+| blog_posts | New table: title, slug (unique), excerpt, content, featured image, SEO title/description, published flag, published_at; public reads published only, admin full access. New public `blog-images` bucket, admin-only write |
 
-## Notes
-- Speed is controlled by the `scroll-x` animation duration (currently `40s`) in `tailwind.config.ts` — easy to tune later if needed.
-- To swap placeholders for real images later: replace each card's inner content with `<img className="h-full w-full object-cover" />`.
+Client linkage: requests submitted while signed in get `client_id`; guest submissions can be linked to an account by matching verified email (decision for Phase 2).
+
+## 7. Compatibility risks
+- Adding columns with defaults/nullable keeps existing forms working; no destructive changes needed (tables are empty).
+- Tightening `design-references` upload policy must not break guest uploads — keep guest upload, add owner/admin read.
+- Content in blog posts must be rendered safely (Markdown or sanitized HTML) to avoid XSS; may need one small package (e.g. a Markdown renderer or DOMPurify).
+- Rate limiting: no built-in per-IP limit for direct database inserts; moving public form submissions through an edge function with basic throttling is the realistic option.
+- Emails: requires setting up a sender email domain (manual DNS step by you). Auth emails (signup, password reset) work with defaults before that.
+- Initial admin: you will sign up once, then the admin role is granted via a one-time database update I run with your approval.
+- Social link previews for blog posts stay site-wide (SPA limitation, noted earlier).
+
+## Manual actions you will need later
+- Choose/verify an email sending domain (e.g. designbakerybd.com) for notifications.
+- Create the admin account and confirm which email gets admin.
