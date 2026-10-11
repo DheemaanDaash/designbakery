@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { supabase } from "@/integrations/supabase/client";
 
 const countryCodes = [
   { code: "+880", label: "🇧🇩 +880" },
@@ -55,11 +56,17 @@ const ContactForm = () => {
     },
   });
 
-  const onSubmit = async (_values: ContactValues) => {
+  const onSubmit = async (values: ContactValues) => {
     setSubmitting(true);
     try {
-      // Local-only submission for now. Add Cloud insert later if desired.
-      await new Promise((r) => setTimeout(r, 400));
+      const phone = values.phone?.trim() ? `${values.countryCode} ${values.phone.trim()}` : null;
+      const { error } = await supabase.from("contact_submissions").insert({
+        name: values.name,
+        email: values.email,
+        phone,
+        message: values.message,
+      });
+      if (error) throw error;
       toast.success("Message sent — we'll get back to you shortly.");
       form.reset();
     } catch {
