@@ -4,7 +4,7 @@ import { LayoutDashboard, FileText, Inbox, LogOut } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
-import { BRAND_ASSETS } from "@/lib/brand-assets";
+import { brandAssets } from "@/lib/brand-assets";
 
 const links = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
@@ -33,7 +33,7 @@ const AdminLayout = () => {
       </Helmet>
       <aside className="md:w-60 bg-card border-b md:border-b-0 md:border-r border-border p-4 flex md:flex-col gap-2 md:gap-1 overflow-x-auto">
         <div className="hidden md:block mb-6 px-2">
-          <img src={BRAND_ASSETS.logo} alt="Design Bakery" className="h-8 w-auto" />
+          <img src={brandAssets.logo} alt="Design Bakery" className="h-8 w-auto" />
           <p className="text-xs text-muted-foreground mt-2">Admin panel</p>
         </div>
         {links.map(({ to, label, icon: Icon, end }) => (

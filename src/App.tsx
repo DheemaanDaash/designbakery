@@ -13,11 +13,18 @@ import DesignRequest from "./pages/DesignRequest.tsx";
 import BrandGuidelines from "./pages/BrandGuidelines.tsx";
 import OurWorks from "./pages/OurWorks.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Login from "./pages/Login.tsx";
+import AdminLayout from "./components/admin/AdminLayout.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import AdminRequests from "./pages/admin/AdminRequests.tsx";
+import AdminInbox from "./pages/admin/AdminInbox.tsx";
+import { AuthProvider } from "./hooks/useAuth.tsx";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <AuthProvider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -32,12 +39,20 @@ const App = () => (
           <Route path="/design-request" element={<DesignRequest />} />
           <Route path="/brand-guidelines" element={<BrandGuidelines />} />
           <Route path="/our-works" element={<OurWorks />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="requests" element={<AdminRequests />} />
+            <Route path="inbox" element={<AdminInbox />} />
+          </Route>
+
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 
