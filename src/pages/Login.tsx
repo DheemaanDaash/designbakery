@@ -31,7 +31,7 @@ const Login = () => {
   const [fullName, setFullName] = useState("");
 
   useEffect(() => {
-    if (!loading && user) navigate(isAdmin ? "/admin" : "/", { replace: true });
+    if (!loading && user) navigate(isAdmin ? "/admin" : "/portal", { replace: true });
   }, [user, isAdmin, loading, navigate]);
 
   const signIn = async (e: React.FormEvent) => {
@@ -79,6 +79,7 @@ const Login = () => {
                 <div><Label htmlFor="si-email">Email</Label><Input id="si-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} /></div>
                 <div><Label htmlFor="si-pass">Password</Label><Input id="si-pass" type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></div>
                 <Button type="submit" disabled={busy} className="w-full rounded-full">{busy ? "Signing in..." : "Sign in"}</Button>
+                <p className="text-sm text-center"><Link to="/forgot-password" className="text-primary hover:underline">Forgot your password?</Link></p>
               </form>
             </TabsContent>
             <TabsContent value="signup">
