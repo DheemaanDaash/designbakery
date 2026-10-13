@@ -14,6 +14,9 @@ import BrandGuidelines from "./pages/BrandGuidelines.tsx";
 import OurWorks from "./pages/OurWorks.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Login from "./pages/Login.tsx";
+import ForgotPassword from "./pages/ForgotPassword.tsx";
+import ResetPassword from "./pages/ResetPassword.tsx";
+import Portal from "./pages/Portal.tsx";
 import AdminLayout from "./components/admin/AdminLayout.tsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
 import AdminRequests from "./pages/admin/AdminRequests.tsx";
@@ -40,6 +43,9 @@ const App = () => (
           <Route path="/brand-guidelines" element={<BrandGuidelines />} />
           <Route path="/our-works" element={<OurWorks />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/portal" element={<Portal />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="requests" element={<AdminRequests />} />
