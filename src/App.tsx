@@ -17,6 +17,10 @@ import Login from "./pages/Login.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
 import Portal from "./pages/Portal.tsx";
+import Blog from "./pages/Blog.tsx";
+import BlogPost from "./pages/BlogPost.tsx";
+import AdminBlog from "./pages/admin/AdminBlog.tsx";
+import AdminBlogEdit from "./pages/admin/AdminBlogEdit.tsx";
 import AdminLayout from "./components/admin/AdminLayout.tsx";
 import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
 import AdminRequests from "./pages/admin/AdminRequests.tsx";
@@ -46,10 +50,14 @@ const App = () => (
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/portal" element={<Portal />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="requests" element={<AdminRequests />} />
             <Route path="inbox" element={<AdminInbox />} />
+            <Route path="blog" element={<AdminBlog />} />
+            <Route path="blog/:id" element={<AdminBlogEdit />} />
           </Route>
 
 

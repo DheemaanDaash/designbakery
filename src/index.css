@@ -87,3 +87,16 @@
     font-family: 'DM Sans', sans-serif;
   }
 }
+
+/* Blog article typography */
+.prose-blog { @apply text-foreground leading-relaxed space-y-5; }
+.prose-blog h1 { @apply text-3xl font-bold text-primary mt-8; }
+.prose-blog h2 { @apply text-2xl font-bold text-primary mt-8; }
+.prose-blog h3 { @apply text-xl font-semibold text-primary mt-6; }
+.prose-blog a { @apply text-primary underline underline-offset-2; }
+.prose-blog ul { @apply list-disc pl-6 space-y-1; }
+.prose-blog ol { @apply list-decimal pl-6 space-y-1; }
+.prose-blog blockquote { @apply border-l-4 border-accent pl-4 italic text-muted-foreground; }
+.prose-blog img { @apply rounded-xl max-w-full; }
+.prose-blog code { @apply bg-muted rounded px-1 py-0.5 text-sm; }
+.prose-blog pre { @apply bg-muted rounded-lg p-4 overflow-x-auto; }

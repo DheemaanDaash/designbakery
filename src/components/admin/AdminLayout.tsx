@@ -1,6 +1,6 @@
 import { NavLink, Navigate, Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { LayoutDashboard, FileText, Inbox, LogOut } from "lucide-react";
+import { LayoutDashboard, FileText, Inbox, LogOut, Newspaper } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
@@ -10,6 +10,7 @@ const links = [
   { to: "/admin", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/admin/requests", label: "Design Requests", icon: FileText },
   { to: "/admin/inbox", label: "Contact Inbox", icon: Inbox },
+  { to: "/admin/blog", label: "Blog", icon: Newspaper },
 ];
 
 const AdminLayout = () => {
